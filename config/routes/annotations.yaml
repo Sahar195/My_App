@@ -1,7 +1,10 @@
-controllers:
-    resource: ../../src/Controller/
-    type: annotation
+# Api Entry Point
+api_entrypoint:
+    path:     /
+    controller: App\Controller\EntryPointController
 
-kernel:
-    resource: ../../src/Kernel.php
-    type: annotation
+# Utilisateurs Endpoints
+Utilisateurs:
+    resource: ./actions/utilisateurs.yaml
+    name_prefix: api_
+    prefix: api/v1/utilisateurs
