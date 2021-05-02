@@ -9,7 +9,9 @@ use FOS\RestBundle\View\View;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Swagger\Annotations as SWG;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
+use OpenApi\Annotations as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -36,9 +38,15 @@ class UtilisateurListController extends AbstractController
      *
      * @Rest\Get("/")
      *
-     *
-     * @SWG\Tag(name="Categories")
-     *
+     * @OA\Get(
+     *     path="/pets",
+     *     description="Returns all pets from the system that the user has access to",
+     *     operationId="findPets",
+     *     @OA\Response(
+     *         response=200,
+     *         description="pet response"
+     *     )
+     * )
      * @Rest\View(serializerGroups={"list"})
      * @param Request $request
      * @return View
